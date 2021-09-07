@@ -24,5 +24,5 @@ print_debug('stuff') // Grey & italics formatting
   "port": "8000"
 }
 ```
-#### • host: If not defined, is <Ivp4 address> by default
-#### • port: If not defined, is '8000' by default
+#### • host: *If not defined, is [Ivp4 address] by default*
+#### • port: *If not defined, is '8000' by default*
