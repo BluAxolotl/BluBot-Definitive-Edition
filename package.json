@@ -25,7 +25,7 @@
     "lowdb": "^3.0.0",
     "moment": "^2.29.1",
     "node-fetch": "^2.6.7",
-    "omni-parser": "^0.0.6",
+    "omni-parser": "^0.0.61",
     "tweetnacl": "^1.0.3",
     "twitter": "^1.7.1",
     "utf-8-validate": "^5.0.7"
