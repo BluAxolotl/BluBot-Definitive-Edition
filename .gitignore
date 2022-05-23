@@ -3,7 +3,6 @@
 node_modules/
 package-lock.json
 start.bat
-package-lock.json
 blubotdefinitive.sublime-project
 blubotdefinitive.sublime-workspace
 node_modules/omni-parser
