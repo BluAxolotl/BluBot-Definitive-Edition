@@ -105,7 +105,5 @@ client.on('ready', () => {
 	if (loaded == 2) {print("BluBot Initialized! (COMPLETE)")}
 })
 
-print(token)
-
 client.login(token)
 // legacy_client.login(token)
