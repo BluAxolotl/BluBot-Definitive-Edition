@@ -26,8 +26,8 @@ var slash_commands = require('./slash_commands.js').commands
 
 require('./music.js')
 
-const { REST } = require('@discordjs/rest');
-const { Routes } = require('discord-api-types/v9');
+const { REST } = require('@discordjs/rest')
+const { Routes } = require('discord-api-types/v9')
 
 const SlashCommands = slash_commands.array.map(o => {
 	var command = slash_commands.dict[o]
@@ -100,8 +100,8 @@ var loaded = 0
 client.on('ready', () => { 
 	// [ SERVERS ]
 	require('./servers/planetbluto.js')(client)
-	print(`BluBot Initialized! (v13)`); 
-	loaded = 2; 
+	print(`BluBot Initialized! (v13)`)
+	loaded = 2
 	if (loaded == 2) {print("BluBot Initialized! (COMPLETE)")}
 })
 
