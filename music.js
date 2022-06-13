@@ -63,25 +63,6 @@ var Times = new Map()
 var Statuses = new Map()
 var Options = new Map()
 
-new ConsoleCommand("list_connections", "Lists all voice chat connection objects", ["none"], function() {
-	var print_string = []
-	Connections.forEach((v, k, m) => { print_string.push(`${k} => ${v.channel.name}`) })
-	print(print_string.join("\n\n"))
-})
-
-new ConsoleCommand("list_statuses", "Lists all voice chat statuses", ["none"], function() {
-	var print_string = []
-	Statuses.forEach((v, k) => { print_string.push(`${k} => ${v}`) })
-	print(print_string.join("\n\n"))
-})
-
-new ConsoleCommand("list_timeouts", "Lists all timeouts for queues", ["none"], function() {
-	var print_string = []
-	print(Timeouts)
-	Timeouts.forEach((v, k) => { print_string.push(`${k} => ${v}`) })
-	print(print_string.join("\n\n"))
-})
-
 new MusicCommand(["play", "p"], "Plays Soundcloud, Twitter, BattleOfTheBits, & Youtube music in voice chat", ["song_link"], null, async function (msg, args, client) {
 	var attachment_count = 0
 	var song
