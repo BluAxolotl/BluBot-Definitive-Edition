@@ -1,23 +1,4 @@
-const {ConsoleServer, ConsoleCommand, print, print_debug} = require('console-to-server')
-ConsoleServer.init({
-	require_enable:true,
-  print_link: true,
-  html: {
-  	format_ansi: true,
-    styles: [
-      ".timestamp { color: #4f4f4f; font-weight: normal }",
-      "body { font-size: 15px; background: #000000 }",
-      ".console_line { font-family: FreeMono, monospace }",
-      ".warn { color: #ffe737 }",
-      ".error { color: #e03c28; font-weight: bold; }",
-      ".debug { color: #7b7b7b; font-style: italic }",
-    ],
-    show_timestamps: true
-  },
-  console: {
-    default_commands: true
-  }
-})
+const print = console.log
 require('dotenv').config({ path: `${__dirname}/.env` })
 const token = process.env['token']
 
