@@ -1,4 +1,4 @@
-const {ConsoleServer, ConsoleCommand, print, print_debug} = require('console-to-server')
+const print = console.log
 const Discord = require('discord.js')
 const GUILD_ID = "974958084415954984"
 const REACT_MSG = "977637818090287177"

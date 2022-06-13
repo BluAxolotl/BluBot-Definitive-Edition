@@ -1,4 +1,4 @@
-const {ConsoleCommand, print, print_debug} = require('console-to-server')
+const print = console.log
 
 var {commands} = require('./slash_commands.js')
 var {view_queue} = require('./music.js')

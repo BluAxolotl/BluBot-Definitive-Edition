@@ -1,4 +1,4 @@
-const {ConsoleCommand, print, print_debug} = require('console-to-server')
+const print = console.log
 
 var BotCommandsJS = require('./bot_commands.js')
 var bot_commands = BotCommandsJS.commands

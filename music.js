@@ -16,7 +16,7 @@ class MusicCommand extends BotCommand {
 var moment = require('moment')
 const googleTTS = require("google-tts-api");
 const Discord = require('discord.js')
-const {print, print_warn, print_error, print_debug, ConsoleCommand } = require('console-to-server')
+const print = console.log
 const { SoundcloudSong, BotbSong, TwitterSong, YouTubeSong, OmniUtils } = require('omni-parser')
 //  
 const emotes = {
