@@ -23,6 +23,7 @@ module.exports = client => {
 		"🔵": "977642445644902400",
 		"🎉": "977654647261114432",
 		"🎬": "977915670203359332",
+		"🔫": "986927537659740191",
 	}
 
 	client.on('messageReactionAdd', async (reaction, user) => { // Adding Reaction Roles
