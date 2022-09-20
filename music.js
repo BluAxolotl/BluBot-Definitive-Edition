@@ -31,7 +31,9 @@ const { VoiceConnection, joinVoiceChannel, createAudioPlayer, createAudioResourc
 
 async function probeAndCreateResource(readableStream) {
 	const { stream, type } = await demuxProbe(readableStream)
-	return createAudioResource(readableStream, { inputType: type, inlineVolume: true });
+	let rec =  createAudioResource(readableStream, { inputType: type, inlineVolume: true });
+	rec.volume.setVolume(0.5)
+	return rec
 }
 
 Discord.VoiceChannel.prototype.join = function () {
