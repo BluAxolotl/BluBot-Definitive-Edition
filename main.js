@@ -2,6 +2,8 @@ const print = console.log
 require('dotenv').config({ path: `${__dirname}/.env` })
 const token = process.env['token']
 
+require('./arrayLib.js')
+
 var {commands, parse_content, parse_msg} = require('./bot_commands.js')
 var slash_commands = require('./slash_commands.js').commands
 
