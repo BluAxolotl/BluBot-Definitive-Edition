@@ -62,7 +62,10 @@ function parse_int(interaction, client) {
 			break;
 		}
 	} else if (interaction.isCommand()) {
-		commands.dict[interaction.commandName].exec(interaction, [], client)
+		var command = commands.dict[interaction.commandName]
+		if (command) {
+			command.exec(interaction, [], client)
+		}
 	}
 }
 
