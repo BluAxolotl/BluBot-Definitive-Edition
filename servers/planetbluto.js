@@ -3,6 +3,11 @@ const Discord = require('discord.js')
 const GUILD_ID = "974958084415954984"
 const REACT_CHL = "975097699152044033"
 const REACT_MSG = "977637818090287177"
+const BACK_UP_REACT_MSG = "1191184586118533171"
+const REACT_MSGs = [
+	REACT_MSG,
+	BACK_UP_REACT_MSG,
+]
 
 const CITIZEN_ROLE = `977632633582407693`
 
@@ -31,15 +36,19 @@ module.exports = client => {
 	})
 
 	client.channels.fetch(REACT_CHL).then(async channel => { // CACHE REACTION ROLE MESSAGE
-		var message = await channel.messages.fetch(REACT_MSG, {cache: true})
-		var json_reactions = message.reactions.cache.toJSON()
 		var reactions = {}
 
 		print("Updating Reaction Roles...")
 
-		await json_reactions.awaitForEach(async reaction => {
-			await reaction.users.fetch()
-			reactions[reaction.emoji] = reaction.users.cache.map(member => member.id)
+		await REACT_MSGs.awaitForEach(async THIS_REACT_MSG => {
+			var message = await channel.messages.fetch(THIS_REACT_MSG, {cache: true})
+			var json_reactions = message.reactions.cache.toJSON()
+
+			await json_reactions.awaitForEach(async reaction => {
+				await reaction.users.fetch()
+				if (!Array.isArray(reactions[reaction.emoji])) { reactions[reaction.emoji] = [] }
+				reactions[reaction.emoji] = reactions[reaction.emoji].concat(reaction.users.cache.map(member => member.id))
+			})
 		})
 
 		print(`- ${Object.keys(reactions)}`)
@@ -82,7 +91,7 @@ module.exports = client => {
 	})
 
 	client.on('messageReactionAdd', async (reaction, user) => { // Adding Reaction Roles
-		if (reaction.message.id == REACT_MSG) {
+		if (REACT_MSGs.includes(reaction.message.id)) {
 			let member = await reaction.message.guild.members.fetch(user.id)
 			if (Object.keys(REACTION_ROLES).includes(reaction.emoji.name)) {
 				member.roles.add(REACTION_ROLES[reaction.emoji.name])
@@ -91,7 +100,7 @@ module.exports = client => {
 	})
 
 	client.on('messageReactionRemove', async (reaction, user) => { // Removing Reaction Roles
-		if (reaction.message.id == REACT_MSG) {
+		if (REACT_MSGs.includes(reaction.message.id)) {
 			let member = await reaction.message.guild.members.fetch(user.id)
 			if (Object.keys(REACTION_ROLES).includes(reaction.emoji.name)) {
 				member.roles.remove(REACTION_ROLES[reaction.emoji.name])
