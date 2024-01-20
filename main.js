@@ -30,7 +30,7 @@ const rest = new REST({ version: '9' }).setToken(token);
     console.log('Started refreshing application (/) commands.');
 
 	await rest.put(
-		Routes.applicationGuildCommands("705347670054666260", "915596570538422292"),
+		Routes.applicationGuildCommands("1198393663882014791", "915596570538422292"),
 		{ body: SlashCommands },
 	);
 
