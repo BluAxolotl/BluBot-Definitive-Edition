@@ -6,7 +6,7 @@ module.exports = (async function (s_old, s_new, client, LowSync, JSONFileSync) {
 	const db = new LowSync(new JSONFileSync(`${__dirname}/storage.json`))
 	db.read()
 
-	var s_current_id = (s_old.channelId || s_new.channelId)
+	var s_current_id = (s_new.channelId || s_old.channelId)
 
 	var guild = await client.guilds.fetch(s_new.guild)
 	var gid = guild.id
